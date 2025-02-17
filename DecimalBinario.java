@@ -7,10 +7,11 @@ public class DecimalBinario {
         float resto;
         do { 
             cociente = x/2;
-            resto = cociente%2;
-            System.out.println("secuencia " + resto);
+            resto = x%2;
+            System.out.println("secuencia " + resto + "    " + cociente);
             x = cociente;
-        } while (cociente<=0);
+        } while (cociente>1);
+
         System.out.println("enough");
         
             
