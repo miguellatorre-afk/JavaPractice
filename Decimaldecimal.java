@@ -6,51 +6,46 @@ public class Decimaldecimal {
         
         switch (label) {
 
-            case "1": 
-            double x = input.nextDouble();
-            double cociente; 
-            double resto;
-            do { 
-                cociente = x/2;
-                resto = x%2;
-                System.out.println("secuencia " + resto);
-                x = cociente;
+            case "1" -> { 
+                double x = input.nextDouble();
+                double cociente; 
+                double resto;
+                System.out.println("no te olvides de leerlo de derecha a izquierda");
+                do { 
+                    cociente = x/2;
+                    resto = x%2;
+                    int resultado = (int)resto;
+                    System.out.print(resultado);
+                    x = cociente;
 
-            } while (cociente>1);
-                break;
+                } while (cociente>1);
+            }
 
-            case "2":
+            case "2" -> {
                 String decimal = input.next();
-              
-
-                String newtext = new StringBuilder(decimal).reverse().toString();
-                System.out.println(newtext);
-
-                double binario = 0;
-                for (int i = 0; i < newtext.length(); i++) {
-
-                    char undigit = newtext.charAt(i);
+                String reversetext = new StringBuilder(decimal).reverse().toString();
+                double result = 0;
+                for (int i = 0; i < reversetext.length(); i++) {
+                    char undigit = reversetext.charAt(i);
                     int  digit = Character.getNumericValue(undigit);
-
-
-                    double digitconverted = digit * Math.pow(2, i);
-                    binario = binario + digitconverted; 
+                    if(digit==1 || digit ==0){
+                        double digitconverted = digit * Math.pow(2, i);
+                        result = result + digitconverted; 
+                    }else{
+                        System.out.println("not accepted");
+                        break;
+                    }
+                  
                 }
-                System.out.println(binario);
-                break;
-
-            case "3":
-            
-
-
-            default:
-                System.out.println("error");
-                break;
+                System.out.println(result);
+            }
+                
+            default -> System.out.println("error");
 
 
         }
         
-            
+        input.close();
            
 
     }
